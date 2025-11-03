@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,34 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Amélioration pour mobile */
+@media (max-width: 640px) {
+  /* Assurer que le contenu ne déborde pas */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Améliorer la lisibilité sur petit écran */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimiser les tap targets pour mobile */
+  button, input, select {
+    min-height: 44px;
+  }
+  
+  /* Améliorer l'affichage des tableaux sur mobile */
+  .table-mobile td {
+    padding: 0.5rem 0.25rem !important;
+  }
+}
+
+/* Éviter le zoom sur les inputs iOS */
+@supports (-webkit-appearance: none) {
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
